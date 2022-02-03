@@ -1,3 +1,5 @@
 <h1>Shopping List</h1>
 
-<%= @items %>
+<% @items.each do |item| %>
+<li><%= item.name %></li>
+<% end %>

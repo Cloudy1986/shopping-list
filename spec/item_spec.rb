@@ -6,13 +6,12 @@ describe Item do
     it 'returns all the items' do
 
       items = Item.all
-      p items
 
-      # expect(items[0]).to be an Item
+      expect(items[0]).to be_a Item
       expect(items.length).to eq 3
-      expect(items[0]).to eq 'Apples'
-      expect(items[1]).to eq 'Pies'
-      expect(items[2]).to eq 'Toilet rolls'
+      expect(items[0].name).to eq 'Apples'
+      expect(items[1].name).to eq 'Pies'
+      expect(items[2].name).to eq 'Toilet Rolls'
     end
   end
 

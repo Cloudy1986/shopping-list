@@ -13,6 +13,7 @@ class ShoppingList < Sinatra::Base
 
   get '/shopping-list' do
     @items = Item.all
+    p @items
     erb :index
   end
 

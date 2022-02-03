@@ -5,6 +5,6 @@ feature 'View items in shopping list' do
     expect(page).to have_content 'Shopping List'
     expect(page).to have_content 'Apples'
     expect(page).to have_content 'Pies'
-    expect(page).to have_content 'Toilet roll'
+    expect(page).to have_content 'Toilet Rolls'
   end
 end

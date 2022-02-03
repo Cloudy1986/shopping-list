@@ -20,5 +20,10 @@ class ShoppingList < Sinatra::Base
     erb :new
   end
 
+  post '/shopping-list/new' do
+    p params
+    redirect '/shopping-list'
+  end
+
   run! if app_file == $0
 end

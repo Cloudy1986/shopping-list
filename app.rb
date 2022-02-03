@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/item'
 
 class ShoppingList < Sinatra::Base
   configure :development do
@@ -11,7 +12,7 @@ class ShoppingList < Sinatra::Base
   end
 
   get '/shopping-list' do
-    @items = ['Apples', 'Pies', 'Toilet rolls']
+    @items = Item.all
     erb :index
   end
 

@@ -33,7 +33,7 @@ class ShoppingList < Sinatra::Base
   end
 
   get '/shopping-list/:id/edit' do
-    "Hello world"
+    erb :edit
   end
 
   run! if app_file == $0

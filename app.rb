@@ -7,7 +7,7 @@ class ShoppingList < Sinatra::Base
   end
 
   get '/' do
-    "hello world"
+    erb :homepage
   end
 
   run! if app_file == $0

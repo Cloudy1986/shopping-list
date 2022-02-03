@@ -4,11 +4,9 @@ describe Item do
   
   describe '.all' do
     it 'returns all the items' do
-
-      connection = PG.connect(dbname: 'shopping_list_test')
-      connection.exec("INSERT INTO items (name) VALUES ('Potatoes');")
-      connection.exec("INSERT INTO items (name) VALUES ('Steak');")
-      connection.exec("INSERT INTO items (name) VALUES ('Bread');")
+      Item.create(name: 'Potatoes')
+      Item.create(name: 'Steak')
+      Item.create(name: 'Bread')
 
       items = Item.all
 

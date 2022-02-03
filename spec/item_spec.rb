@@ -20,4 +20,16 @@ describe Item do
     end
   end
 
+  describe '.create' do
+    it 'adds an item to the database' do
+      item = Item.create(name: 'Cereal')
+
+      items = Item.all
+
+      expect(item).to be_a Item
+      expect(item.name).to eq items[0].name
+      expect(item.id).to eq items[0].id
+    end
+  end
+
 end

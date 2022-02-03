@@ -20,5 +20,15 @@ class Item
       Item.new(id: item['id'], name: item['name'])
     end
   end
-  
+
+  def self.create(name:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'shopping_list_test')
+    else
+      connection = PG.connect(dbname: 'shopping_list')
+    end
+    result = connection.exec_params("INSERT INTO items (name) VALUES ($1) RETURNING id, name;", [name])
+    Item.new(id: result[0]['id'], name: result[0]['name'])
+  end
+
 end

@@ -21,7 +21,7 @@ class ShoppingList < Sinatra::Base
   end
 
   post '/shopping-list/new' do
-    p params
+    Item.create(name: params['name'])
     redirect '/shopping-list'
   end
 

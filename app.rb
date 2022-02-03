@@ -7,6 +7,8 @@ class ShoppingList < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :method_override
+
   get '/' do
     erb :homepage
   end
@@ -22,6 +24,11 @@ class ShoppingList < Sinatra::Base
 
   post '/shopping-list/new' do
     Item.create(name: params['name'])
+    redirect '/shopping-list'
+  end
+
+  delete '/shopping-list/:id' do
+    Item.delete(id: params['id'])
     redirect '/shopping-list'
   end
 

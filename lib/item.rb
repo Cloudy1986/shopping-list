@@ -31,4 +31,13 @@ class Item
     Item.new(id: result[0]['id'], name: result[0]['name'])
   end
 
+  def self.delete(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'shopping_list_test')
+    else
+      connection = PG.connect(dbname: 'shopping_list')
+    end
+    result = connection.exec_params("DELETE FROM items WHERE id = $1;", [id])
+  end
+
 end

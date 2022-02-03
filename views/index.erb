@@ -1,7 +1,13 @@
 <h1>Shopping List</h1>
 
 <% @items.each do |item| %>
-<li><%= item.name %></li>
+<li>
+  <%= item.name %>
+  <form action="/shopping-list/<%= item.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+  </form>
+</li>
 <% end %>
 
 <br>

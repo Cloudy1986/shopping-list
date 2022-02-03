@@ -30,4 +30,16 @@ describe Item do
     end
   end
 
+  describe '.delete' do
+    it 'deletes an item from the database' do
+      item = Item.create(name: 'Milk')
+
+      Item.delete(id: item.id)
+      items = Item.all
+
+      expect(items.length).to eq 0
+      expect(items).to eq []
+    end
+  end
+
 end

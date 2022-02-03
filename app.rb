@@ -32,5 +32,9 @@ class ShoppingList < Sinatra::Base
     redirect '/shopping-list'
   end
 
+  get '/shopping-list/:id/edit' do
+    "Hello world"
+  end
+
   run! if app_file == $0
 end

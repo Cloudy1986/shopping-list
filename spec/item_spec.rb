@@ -47,10 +47,22 @@ describe Item do
       item = Item.create(name: 'Butter')
 
       returned_item = Item.find(id: item.id)
-      
+
       expect(returned_item).to be_a Item
       expect(returned_item.id).to eq item.id
       expect(returned_item.name).to eq item.name
+    end
+  end
+
+  describe '.update' do
+    it 'updates the correct item' do
+      item = Item.create(name: 'Face wash')
+      
+      updated_item = Item.update(id: item.id, name: 'Hair gel')
+      
+      expect(updated_item).to be_a Item
+      expect(updated_item.id).to eq item.id
+      expect(updated_item.name).to eq 'Hair gel'
     end
   end
 

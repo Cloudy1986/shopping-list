@@ -50,4 +50,14 @@ class Item
     Item.new(id: result[0]['id'], name: result[0]['name'])
   end
 
+  def self.update(id:, name:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'shopping_list_test')
+    else
+      connection = PG.connect(dbname: 'shopping_list')
+    end
+    result = connection.exec_params("UPDATE items SET name = $1 WHERE id = $2 RETURNING id, name ;", [name, id])
+    Item.new(id: result[0]['id'], name: result[0]['name'])
+  end
+
 end

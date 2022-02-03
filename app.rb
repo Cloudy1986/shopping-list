@@ -34,8 +34,12 @@ class ShoppingList < Sinatra::Base
 
   get '/shopping-list/:id/edit' do
     @item = Item.find(id: params['id'])
-    p @item
     erb :edit
+  end
+
+  patch '/shopping-list/:id/edit' do
+    Item.update(id: params['id'], name: params['name'])
+    redirect '/shopping-list'
   end
 
   run! if app_file == $0

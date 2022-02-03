@@ -10,10 +10,15 @@ class Item
   end
 
   def self.all
-    connection = PG.connect(dbname: 'shopping_list')
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'shopping_list_test')
+    else
+      connection = PG.connect(dbname: 'shopping_list')
+    end
     result = connection.exec_params('SELECT * FROM items;')
     result.map do |item|
       Item.new(id: item['id'], name: item['name'])
     end
   end
+  
 end

@@ -16,5 +16,9 @@ class ShoppingList < Sinatra::Base
     erb :index
   end
 
+  get '/shopping-list/new' do
+    erb :new
+  end
+
   run! if app_file == $0
 end

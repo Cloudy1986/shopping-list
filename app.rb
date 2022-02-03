@@ -10,5 +10,10 @@ class ShoppingList < Sinatra::Base
     erb :homepage
   end
 
+  get '/shopping-list' do
+    @items = ['Apples', 'Pies', 'Toilet rolls']
+    erb :index
+  end
+
   run! if app_file == $0
 end

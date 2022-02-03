@@ -5,7 +5,7 @@ feature 'Edit Item' do
     click_link 'Add item'
     fill_in 'name', with: 'Sprouts'
     click_button 'Submit'
-    click_button 'Edit item'
+    click_button 'Edit'
     fill_in 'name', with: 'Stuffing'
     click_button 'Submit'
 

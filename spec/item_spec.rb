@@ -42,4 +42,16 @@ describe Item do
     end
   end
 
+  describe '.find' do
+    it 'returns the correct item' do
+      item = Item.create(name: 'Butter')
+
+      returned_item = Item.find(id: item.id)
+      
+      expect(returned_item).to be_a Item
+      expect(returned_item.id).to eq item.id
+      expect(returned_item.name).to eq item.name
+    end
+  end
+
 end

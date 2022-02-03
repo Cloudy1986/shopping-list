@@ -33,6 +33,8 @@ class ShoppingList < Sinatra::Base
   end
 
   get '/shopping-list/:id/edit' do
+    @item = Item.find(id: params['id'])
+    p @item
     erb :edit
   end
 

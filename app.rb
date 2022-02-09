@@ -43,7 +43,20 @@ class ShoppingList < Sinatra::Base
   end
 
   get '/shopping-list/:id/comment/new' do
+    @item = Item.find(id: params['id'])
     erb :'comments/new'
+  end
+
+  post '/shopping-list/:id/comment' do
+    p params
+    #Add comment to the database
+    redirect "/shopping-list/#{params['id']}/comments"
+  end
+
+  get '/shopping-list/:id/comments' do
+    @item = Item.find(id: params['id'])
+    # Get comments
+    erb :'comments/index'
   end
 
   run! if app_file == $0

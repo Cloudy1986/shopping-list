@@ -43,7 +43,7 @@ class ShoppingList < Sinatra::Base
   end
 
   get '/shopping-list/:id/comment/new' do
-    "Add a new comment"
+    erb :'comments/new'
   end
 
   run! if app_file == $0

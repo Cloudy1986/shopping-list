@@ -42,5 +42,9 @@ class ShoppingList < Sinatra::Base
     redirect '/shopping-list'
   end
 
+  get '/shopping-list/:id/comment/new' do
+    "Add a new comment"
+  end
+
   run! if app_file == $0
 end

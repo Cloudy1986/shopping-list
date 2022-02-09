@@ -15,11 +15,11 @@ class ShoppingList < Sinatra::Base
 
   get '/shopping-list' do
     @items = Item.all
-    erb :index
+    erb :'items/index'
   end
 
   get '/shopping-list/new' do
-    erb :new
+    erb :'items/new'
   end
 
   post '/shopping-list/new' do
@@ -34,7 +34,7 @@ class ShoppingList < Sinatra::Base
 
   get '/shopping-list/:id/edit' do
     @item = Item.find(id: params['id'])
-    erb :edit
+    erb :'items/edit'
   end
 
   patch '/shopping-list/:id/edit' do

@@ -50,6 +50,7 @@ class ShoppingList < Sinatra::Base
   post '/shopping-list/:id/comment' do
     p params
     #Add comment to the database
+    # Comment.create(text: params['comment_text'], item_id: params['id'])
     redirect "/shopping-list/#{params['id']}/comments"
   end
 

@@ -48,7 +48,7 @@ class ShoppingList < Sinatra::Base
   end
 
   post '/shopping-list/:id/comment' do
-    p params
+    # p params
     #Add comment to the database
     # Comment.create(text: params['comment_text'], item_id: params['id'])
     redirect "/shopping-list/#{params['id']}/comments"
@@ -57,6 +57,7 @@ class ShoppingList < Sinatra::Base
   get '/shopping-list/:id/comments' do
     @item = Item.find(id: params['id'])
     # Get comments
+    # @comments = Comment.where(item_id: params['id'])
     erb :'comments/index'
   end
 

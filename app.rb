@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/item'
+require './lib/comment'
 
 class ShoppingList < Sinatra::Base
   configure :development do
@@ -48,9 +49,7 @@ class ShoppingList < Sinatra::Base
   end
 
   post '/shopping-list/:id/comment' do
-    # p params
-    #Add comment to the database
-    # Comment.create(text: params['comment_text'], item_id: params['id'])
+    Comment.create(text: params['comment_text'], item_id: params['id'])
     redirect "/shopping-list/#{params['id']}/comments"
   end
 

@@ -1,8 +1,8 @@
 <h1>Shopping List</h1>
 
 <% @items.each do |item| %>
-<li>
-  <%= item.name %>
+<ul>
+  <h2><%= item.name %></h2>
   <form action="/shopping-list/<%= item.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete">
@@ -10,7 +10,7 @@
   <form action="/shopping-list/<%= item.id %>/edit" method="get">
     <input type="submit" value="Edit">
   </form>
-</li>
+</ul>
 <% end %>
 
 <br>

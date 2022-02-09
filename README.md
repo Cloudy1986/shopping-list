@@ -33,9 +33,11 @@ To set up the development database:
 2. `CREATE DATABASE shopping_list;`
 3. `\c shopping_list;`
 4. `CREATE TABLE items (id SERIAL PRIMARY KEY, name VARCHAR(50));`
+5. `CREATE TABLE comments (id SERIAL PRIMARY KEY, text VARCHAR(100), item_id INTEGER REFERENCES items (id));`
 
 To set up the test database:
 1. `psql`
 2. `CREATE DATABASE shopping_list_test;`
 3. `\c shopping_list_test;`
 4. `CREATE TABLE items (id SERIAL PRIMARY KEY, name VARCHAR(50));`
+5. `CREATE TABLE comments (id SERIAL PRIMARY KEY, text VARCHAR(100), item_id INTEGER REFERENCES items (id));`

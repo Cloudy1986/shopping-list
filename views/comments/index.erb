@@ -1,1 +1,11 @@
 <h1>Comments for <%= @item.name %></h2>
+
+<% @comments.each do |comment| %>
+<li><%= comment.text %></li>
+<% end %>
+
+<br>
+
+<form action="/shopping-list" method="get">
+  <input type="submit" value="View shopping list">
+</form>

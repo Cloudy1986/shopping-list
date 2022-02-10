@@ -55,8 +55,7 @@ class ShoppingList < Sinatra::Base
 
   get '/shopping-list/:id/comments' do
     @item = Item.find(id: params['id'])
-    # Get comments
-    # @comments = Comment.where(item_id: params['id'])
+    @comments = Comment.where(item_id: params['id'])
     erb :'comments/index'
   end
 

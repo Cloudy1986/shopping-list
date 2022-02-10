@@ -18,6 +18,17 @@ feature 'Add and View comments' do
     click_button 'View shopping list'
     expect(current_path).to eq "/shopping-list"
     expect(page).to have_content 'Shopping List'
+  end
+
+  scenario 'user can navigate to view comments without adding a new comment' do
+    item = Item.create(name: 'Hair gel')
+    visit 'shopping-list'
+    expect(current_path).to eq '/shopping-list'
+    expect(page).to have_content 'Shopping List'
+    expect(page).to have_content 'Hair gel'
     
+    click_button 'View comments'
+    expect(current_path).to eq "/shopping-list/#{item.id}/comments"
+    expect(page).to have_content "Comments"
   end
 end

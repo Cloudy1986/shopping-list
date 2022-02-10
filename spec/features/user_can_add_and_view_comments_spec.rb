@@ -29,6 +29,6 @@ feature 'Add and View comments' do
     
     click_button 'View comments'
     expect(current_path).to eq "/shopping-list/#{item.id}/comments"
-    expect(page).to have_content "Comments"
+    expect(page).to have_content "Comments for Hair gel"
   end
 end
